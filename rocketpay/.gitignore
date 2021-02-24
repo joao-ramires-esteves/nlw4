@@ -29,3 +29,5 @@ rocketpay-*.tar
 
 # Private stuff
 /config/
+
+numbers.csv
