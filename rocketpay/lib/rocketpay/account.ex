@@ -1,6 +1,8 @@
 defmodule Rocketpay.Account do
   @moduledoc """
-  module que
+  module que define uma account, linkando ela\n
+  com um user\n
+  tipo um model tbm
   """
   use Ecto.Schema
   import Ecto.Changeset
@@ -20,10 +22,10 @@ defmodule Rocketpay.Account do
     timestamps()
   end
 
-  def changeset(params) do            ## sanitiza
+  def changeset(params) do  # sanitiza
     %__MODULE__{}
     |> cast(params, @required_params)
-    |> validate_required(@required_params) ## altos validate possiveis
+    |> validate_required(@required_params) # altos validate possiveis
     |> check_constraint(:balance, name: :balance_must_be_positive_or_zero)
   end
 end
