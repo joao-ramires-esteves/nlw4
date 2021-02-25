@@ -2,6 +2,7 @@ defmodule Rocketpay.Accounts.Transaction do
   alias Ecto.Multi
 
   alias Rocketpay.Accounts.Operation
+  alias Rocketpay.Accounts.Transactions.Response, as: TransactionResponse
   # Repo desse app especifico (controlador da db)
   alias Rocketpay.Repo
 
@@ -22,7 +23,8 @@ defmodule Rocketpay.Accounts.Transaction do
     case Repo.transaction(multi) do
       # na transaction ou roda tudo ou roda nada
       {:error, _operation, reason, _changes} -> {:error, reason}
-      {:ok, %{deposit: to_account, withdraw: from_account}} -> {:ok, %{to_account: to_account, from_account: from_account}}
+      {:ok, %{deposit: to_account, withdraw: from_account}} ->
+        {:ok, TransactionResponse.build(from_account, to_account)}
     end
   end
 end
