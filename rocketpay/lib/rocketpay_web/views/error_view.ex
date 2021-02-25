@@ -23,6 +23,10 @@ defmodule RocketpayWeb.ErrorView do
     %{message: translate_errors(var_changeset)}
   end
 
+  def render("400.json", %{ result: message }) do
+    %{message: message}
+  end
+
   # tirado diretamente do exemplo da doc
   defp translate_errors(changeset) do
     traverse_errors(changeset, fn {msg, opts} ->
