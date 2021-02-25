@@ -12,7 +12,7 @@ defmodule Rocketpay.Accounts.Deposit do
     case Repo.transaction(multi) do
       # na transaction ou roda tudo ou roda nada
       {:error, _operation, reason, _changes} -> {:error, reason}
-      {:ok, %{update_balance: account}} -> {:ok, account}
+      {:ok, %{deposit: account}} -> {:ok, account}
     end
   end
 

@@ -7,12 +7,15 @@ defmodule Rocketpay.Accounts.Operation do
   alias Rocketpay.{Account, Repo}
 
   def call(%{ "id" => var_id, "value" => var_value}, operation) do
+    # chama a func pra poder n dar grosope com o Multi, isso eh um nome dinamico
+    operation_name = account_operation_name(operation)
     # inicia transaction
     Multi.new()
-    # tenta pegar a conta
-    |> Multi.run(:account, fn repo, _changes -> get_account(repo, var_id) end)
+    |> Multi.run(operation_name, fn repo, _changes -> get_account(repo, var_id) end)
     # se deu certo update
-    |> Multi.run(:update_balance, fn repo, %{account: account} -> update_balance(repo, account, var_value, operation) end)
+    |> Multi.run(operation, fn repo, changes ->
+      account = Map.get(changes, operation_name)
+      update_balance(repo, account, var_value, operation) end)
   end
 
   defp get_account(repo, id) do
@@ -49,5 +52,9 @@ defmodule Rocketpay.Accounts.Operation do
     account
     |> Account.changeset(params)
     |> repo.update()
+  end
+
+  defp account_operation_name(operation) do
+    "account_#{Atom.to_string(operation)}" |> String.to_atom()
   end
 end
