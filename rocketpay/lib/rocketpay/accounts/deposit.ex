@@ -12,7 +12,9 @@ defmodule Rocketpay.Accounts.Deposit do
     case Repo.transaction(multi) do
       # na transaction ou roda tudo ou roda nada
       {:error, _operation, reason, _changes} -> {:error, reason}
-      {:ok, %{deposit: account}} -> {:ok, account}
+      {:ok, %{deposit: account} = map} ->
+        IO.inspect(map)
+        {:ok, account}
     end
   end
 
