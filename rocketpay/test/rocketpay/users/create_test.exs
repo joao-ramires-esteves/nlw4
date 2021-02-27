@@ -1,6 +1,6 @@
 defmodule Rocketpay.Users.CreateTest do
   # aqui tem um errors_on daora, deixa o test mais legivel e faz em sandbox
-  use Rocketpay.DataCase
+  use Rocketpay.DataCase, async: true
 
   alias Rocketpay.User
   alias Rocketpay.Users.Create

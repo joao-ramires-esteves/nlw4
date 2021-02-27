@@ -1,6 +1,8 @@
 defmodule Rocketpay.NumbersTest do
-  use ExUnit.Case
+  # modulo pra unit testing
+  use ExUnit.Case, async: true
 
+  # alias do modulo pra poder usar ele suave
   alias Rocketpay.Numbers
 
   describe "sum_from_file/1" do

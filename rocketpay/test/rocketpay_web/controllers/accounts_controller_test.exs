@@ -1,6 +1,6 @@
 defmodule RocketpayWeb.AccountsControllerTest do
   # pra test de controller usa issai
-  use RocketpayWeb.ConnCase
+  use RocketpayWeb.ConnCase, async: true
 
   alias Rocketpay.{Account, User}
 
@@ -33,6 +33,19 @@ defmodule RocketpayWeb.AccountsControllerTest do
         "account" => %{"balance" => "50.00", "id" => _id},
         "message" => "balance changed successfully"
       } = response
+    end
+
+    test "invalid params, return error", %{conn: conn, account_id: account_id} do
+      params = %{"value" => "banana"}
+
+      response =
+        conn
+        |> post(Routes.accounts_path(conn, :deposit, account_id, params))
+        |> json_response(:bad_request)
+
+      expected_response = %{"message" => "invalid deposit value"}
+
+      assert response == expected_response
     end
   end
 end
