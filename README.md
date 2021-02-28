@@ -1,11 +1,6 @@
 # Next Level Week 4.0 :rocket:
 
-<img align="center" src=rocketpay/image.jpg width="950" height="90" />
-
-<p align="center">
-  <a href="#projeto">Projeto</a>&nbsp;&nbsp;<>&nbsp;&nbsp;
-  <a href="#tecnologias">Tecnologias Usadas</a>&nbsp;&nbsp;
-</p>
+<img align="middle" src="https://ludu-assets.s3.amazonaws.com/course-icons/26/I5mCOcqaE6RHdfD3Q1Ta" alt="Next Level Week" height=200 width=200 />
 
 <br>
 
@@ -14,5 +9,5 @@
 
 
 <h2 id="tecnologias">Tecnologias usadas:</h2>
-[Elixir] (https://elixir-lang.org/), [Phoenix Framework] (https://www.phoenixframework.org/), [Dotenv] (https://github.com/avdi/dotenv_elixir), [Bcrypt] (https://github.com/riverrun/bcrypt_elixir), [Credo] (https://github.com/rrrene/credo), [ExCoveralls] (https://github.com/parroty/excoveralls)
+[Elixir](https://elixir-lang.org/), [Phoenix Framework](https://www.phoenixframework.org/), [Dotenv](https://github.com/avdi/dotenv_elixir), [Bcrypt](https://github.com/riverrun/bcrypt_elixir), [Credo](https://github.com/rrrene/credo), [ExCoveralls](https://github.com/parroty/excoveralls)
 
