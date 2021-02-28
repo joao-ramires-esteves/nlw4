@@ -1,6 +1,6 @@
 # Next Level Week 4.0 :rocket:
 
-
+<img align="center" src=rocketpay/image.jpg width="950" height="90" />
 
 <p align="center">
   <a href="#projeto">Projeto</a>&nbsp;&nbsp;<>&nbsp;&nbsp;
